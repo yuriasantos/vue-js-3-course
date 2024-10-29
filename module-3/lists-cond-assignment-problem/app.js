@@ -6,12 +6,14 @@ const app = Vue.createApp({
       showList: true
     };
   },
+  computed: {
+    buttonCaption() {
+      return this.showList ? 'Hide List' : 'Show List';
+    }
+  },
   methods: {
     addTask() {
       this.taskList.push(this.userInput);
-    },
-    removeTask(index) {
-      this.taskList.splice(index, 1);
     },
     toggleListView() {
       this.showList = !this.showList
