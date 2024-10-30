@@ -9,6 +9,7 @@
       <li>{{ phoneNumber }}</li>
       <li>{{ emailAddress }}</li>
     </ul>
+    <button @click="$emit('delete-friend', id)">Delete</button>
   </li>
 </template>
 
@@ -42,13 +43,21 @@ export default {
     },
   },
   emits: {
-    'toggle-favorite': function(id) {
+    'toggle-favorite': function (id) {
       if (id) {
-        return true;
+        return true
       } else {
-        console.warn('No id provided. Cannot toggle favorite status.');
-        return false;
-      };
+        console.warn('No id provided. Cannot toggle favorite status.')
+        return false
+      }
+    },
+    'delete-friend': function (id) {
+      if (id) {
+        return true
+      } else {
+        console.warn('No id provided. Cannot toggle favorite status.')
+        return false
+      }
     },
   },
   data() {
@@ -61,7 +70,7 @@ export default {
       this.detailsAreVisible = !this.detailsAreVisible
     },
     toggleFavorite() {
-      this.$emit('toggle-favorite', this.id);
+      this.$emit('toggle-favorite', this.id)
     },
   },
 }
